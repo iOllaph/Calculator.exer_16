@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --background: #fcf6e6;
+    --calculcator-container: #b8f3d8;
+    --background-body: #ABD7AE;
+    --background-border: #42443e;
+    --background-shadow: #2d362f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, var(--background), var(--background-body))
+}
+
+.calculator {
+    
+    display: grid;
+    height: 700px;
+    background-color: var(--background);
+    width: 400px;
+    border: 3px solid var(--background-shadow);
+    border-radius: 22px;
+    -webkit-box-shadow: 9px 9px 0px 0px var(--background-shadow);
+    -moz-box-shadow: 9px 9px 0px 0px var(--background-shadow);
+    box-shadow: 9px 9px 0px 0px var(--background-shadow);
+        
+}
+
+.calculator-operand {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    border-radius:18px ;
+    height: 500px;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(5,80px);
+    background-color: var(--calculcator-container);
+    column-gap: 15px;
+    row-gap: 15px;
+    align-self: end;
+}
+
+
+.span-two {
+    grid-column: span 2;
+}
+
+
+.calculator-operand > button {
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: var(--background);
+    outline: none;
+    border: 2px solid var(--background-border);
+    border-radius: 15px;
+    -webkit-box-shadow: 3px 4px 0px 0px var(--background-shadow);
+    -moz-box-shadow: 3px 4px 0px 0px var(--background-shadow);
+    box-shadow: 3px 4px 0px 0px var(--background-shadow);
+    
+}
+
+.calculator-operand > button:hover {
+    border: none;
+    -webkit-box-shadow: 0px 0px 0px 0px var(--background-shadow);
+    -moz-box-shadow: 0px 0px 0px 0px var(--background-shadow);
+    box-shadow: 0px 0px 0px 0px var(--background-shadow);
+
+}
+
+.calculator-output {
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 3rem;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.calculator-output .output-previous-operand {
+    font-size: 2.5rem;
+    color:var(--background-border);
+}
+
+.calculator-output .output-current-operand {
+    font-size: 3rem;
+}
