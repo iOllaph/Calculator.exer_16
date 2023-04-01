@@ -7,7 +7,11 @@ class Calculator {
 
 
 
-    // With the constructor, we will call the outside const inside the class
+    /* This constructor function is used to create a new Calculator object with two properties: 
+    previousOperandTextElement and currentOperandTextElement, which store references 
+    to HTML elements that will display the previous and current operand values in the calculator.  */
+    // The "allClear()" is also called to initialize these properties to empty values.
+    
     constructor (previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement;
         this.currentOperandTextElement = currentOperandTextElement;
@@ -32,6 +36,8 @@ class Calculator {
     }
 
 
+
+    // Is converting to string, to add numbers to use in the operations
     appendNumber(number){
         this.currentOperand = this.currentOperand.toString() + number.toString();
 
@@ -48,6 +54,10 @@ class Calculator {
 
     }
 
+    
+
+    // Must converto to string to delete the last number
+
     delete() {
         this.currentOperand = this.currentOperand.toString().slice(0,-1);
     }
@@ -57,6 +67,8 @@ class Calculator {
     // Actual calculations
     // isNaN means "is not a Nummber"
     // This symbol || inside the if means "or"
+    // Must use "parseFloat" to convert the string numbers in to number. So javascript can use in the operations
+
     compute() {
         let computation
 
@@ -89,6 +101,9 @@ class Calculator {
     }
 
 
+    /* The ${} syntax within the template literal is used to inject variables or expressions into the string.
+    So, in this case, the string "${this.previousOperand} ${this.operation} " is constructed by combining the value of this.previousOperand, a space, and the value of this.operation.
+    For example, if this.previousOperand is 5 and this.operation is '+', the resulting string would be "5 + ". --TEACHER GPT-- */ 
 
     udpateCalculator() {
         this.currentOperandTextElement.innerText = this.currentOperand;
@@ -103,6 +118,7 @@ class Calculator {
 
 
 // const assignment to data
+
 const buttonNumber = document.querySelectorAll("[data-number]");
 const buttonOperation = document.querySelectorAll("[data-operation]");
 const buttonEqual = document.querySelector("[data-equal]");
@@ -112,10 +128,13 @@ const previousOperandTextElement = document.querySelector("[data-previous-operan
 const currentOperandTextElement = document.querySelector("[data-current-operand]");
 
 
+// to assing a class to a const, must use "new"
 
 const calculator = new Calculator (previousOperandTextElement, currentOperandTextElement)
 
 
+
+// Event Listeners 
 
 buttonNumber.forEach(button =>{
     button.addEventListener("click", () => {
